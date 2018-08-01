@@ -104,7 +104,7 @@ class Search extends Component {
   render () {
     return (
       <div>
-      <h2>Search for a flight</h2>
+      <h2>Search a flight</h2>
       <SearchForm onSubmit={this.saveFlight}/>
       <ListFlights flights={this.state}/>
       </div>

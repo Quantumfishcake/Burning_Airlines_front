@@ -6,7 +6,7 @@ class Home extends Component {
     return (
       <div className="App">
         <h1>Burning Airlines</h1>
-          <p>Looking for a flight ? <Link to='/search'>Search</Link></p>
+          <p>Looking for a flight ? <button><Link to='/search'>Search</Link></button></p>
       </div>
     );
   }

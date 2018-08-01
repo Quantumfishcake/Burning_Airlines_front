@@ -5,16 +5,17 @@ import styled from 'styled-components'
 
 
 
+
 class App extends Component {
   render() {
     return (
-
         <div className="App">
-          <navbar>
+          <div className="box1">
+          
             <Search />
-              </navbar>
-        </div>
 
+        </div>
+      </div>
     );
   }
 }
