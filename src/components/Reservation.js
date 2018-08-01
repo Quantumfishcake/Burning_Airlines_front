@@ -92,11 +92,7 @@ console.log(columns);
 
     return (
       <div>
-      <p>FLight: {this.props.planes.flight_num}</p>
-        <p>Plane: {this.props.planes.plane}</p>
-        <p>Rows: {this.props.planes.rows}</p>
-        <p>Columns: {this.props.planes.columns}</p>
-        <p>Seats: {+(this.props.planes.columns) * +(this.props.planes.rows)}</p>
+
         <table className='flighttable'>
           <tbody>
             {rows.map(row => (
@@ -119,15 +115,11 @@ console.log(columns);
   }
 }
 
-
-
-
-
 class Reservation extends Component {
   constructor (props) {
     super (props)
     this.state = {flight_num: '', plane_id: props.match.params.plane_id, rows: '', columns: '', plane: ''}
-
+3
     const fetchPlanes = () => {
       console.log(PLANESERVER_URL+`${props.match.params.plane_id}`+".json");
       axios.get(PLANESERVER_URL+`${props.match.params.plane_id}`+".json").then((results) => {
@@ -150,21 +142,13 @@ class Reservation extends Component {
     }
     fetchFlight()
 
-
-
   }
-
-
-
-
 
   render() {
     return (
       <div className="App">
         <h1>Reservation</h1>
-          <p>Plane id: {this.props.match.params.plane_id}</p>
-          <p>Flight id: {this.props.match.params.id}</p>
-          <Plane planes={this.state} flightprops={this.props.match.params.id} onSubmit={this.saveSeat}/>
+          <Plane planes={this.state} onSubmit={this.saveSeat}/>
       </div>
     );
   }
