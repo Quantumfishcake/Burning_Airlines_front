@@ -25,7 +25,7 @@ constructor(props){
 
     return (
       <div>
-      <p>FLight: {this.props.planes.flight_num}</p>
+      <p>Flight: {this.props.planes.flight_num}</p>
         <p>Plane: {this.props.planes.plane}</p>
         <p>Rows: {this.props.planes.rows}</p>
         <p>Columns: {this.props.planes.columns}</p>
@@ -49,15 +49,11 @@ constructor(props){
   }
 }
 
-
-
-
-
 class Reservation extends Component {
   constructor (props) {
     super (props)
     this.state = {flight_num: '', plane_id: props.match.params.plane_id, rows: '', columns: '', plane: ''}
-
+3
     const fetchPlanes = () => {
       console.log(PLANESERVER_URL+`${props.match.params.plane_id}`+".json");
       axios.get(PLANESERVER_URL+`${props.match.params.plane_id}`+".json").then((results) => {
@@ -78,8 +74,6 @@ class Reservation extends Component {
       })
     }
     fetchFlight()
-
-
 
   }
 
