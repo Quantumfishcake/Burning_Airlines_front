@@ -8,18 +8,32 @@ var _ = require('lodash');
 
 const FLIGHTSERVER_URL = 'http://localhost:3000/flights/'
 const PLANESERVER_URL = 'http://localhost:3000/planes/'
+const RESSERVER_URL = 'http://localhost:3000/reservation/'
 
 
 class Plane extends Component {
 constructor(props){
   super (props)
-  this.state={rows: '', columns: ''}
+  this.state={seat: ''}
 this._handleClick = this._handleClick.bind(this)
 }
 
 _handleClick(event){
+  if(event.target.style.backgroundColor == 'red'){
+    event.target.style.backgroundColor='white'
+    this.setState({seat: " "})
+  }
+  else {
   event.target.style.backgroundColor='red'
+}
+  this.setState({seat: event.target.dataset.value} )
   console.log(event.target.dataset.value);
+}
+
+_handleSubmit(event){
+  event.preventDefault()
+    this.props.onSubmit(this.state.content)
+
 }
 
 
@@ -47,13 +61,12 @@ console.log(columns);
                 ))}
                 </tr>
             ))}
-
-
-
-
-
           </tbody>
         </table>
+        <form onSubmit={this._handleSubmit}>
+    <textarea  value={this.state.seat}></textarea>
+    <input type='submit' value='Book' />
+    </form>
       </div>
 
     )
@@ -91,6 +104,8 @@ class Reservation extends Component {
     fetchFlight()
 
 
+    
+
 
   }
 
@@ -101,7 +116,7 @@ class Reservation extends Component {
         <h1>Reservation</h1>
           <p>Plane id: {this.props.match.params.plane_id}</p>
           <p>Flight id: {this.props.match.params.id}</p>
-          <Plane planes={this.state}/>
+          <Plane planes={this.state} onSubmit={this.saveSeat}/>
       </div>
     );
   }
