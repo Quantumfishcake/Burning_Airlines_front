@@ -56,7 +56,7 @@ class ListFlights extends Component {
     return (
       <div>
 
-      {_.filter(this.props.flights.flights, { 'origin': this.props.flights.origin, 'destination': this.props.flights.destination }).map((f) => <p key ={f.id}>{f.origin} > {f.destination} Flight: <Link to={`/reservation/${f.flight_num}`}>SEARCH</Link> {f.flight_num} Date: {f.date}</p>)}
+      {_.filter(this.props.flights.flights, { 'origin': this.props.flights.origin, 'destination': this.props.flights.destination }).map((f) => <p key ={f.id}>{f.origin} > {f.destination} Flight: <Link to={`/reservation/${f.plane_id}/${f.id}`}>SEARCH</Link> {f.flight_num} Date: {f.date}</p>)}
       {this.props.flights.planes.map((f) => <p key= {f.id}> {f.name} </p>)}
       </div>
     )
@@ -66,7 +66,7 @@ class ListFlights extends Component {
 
 // => objects for ['barney']
 
-class Secrets extends Component {
+class Search extends Component {
   constructor () {
     super ()
 
@@ -112,4 +112,4 @@ class Secrets extends Component {
   }
 }
 
-export default Secrets
+export default Search

@@ -14,7 +14,7 @@ const Routes = (
 
     <Route exact path='/' component={ Home } />
     <Route exact path='/search' component={ App } />
-    <Route exact path='/reservation/:flight_num' component={ Reservation } />
+    <Route exact path='/reservation/:plane_id/:id' component={ Reservation } />
 
 
   </div>
