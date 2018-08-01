@@ -25,7 +25,8 @@ const fetchRes = () => {
   axios.get(RESSERVERGET_URL).then((results) => {
     console.log(results.data);
     let data = results.data
-    let data2 = _.filter(data, {flight_id: 7})
+    console.log(props.flightprops);
+    let data2 = _.filter(data, {flight_id: +(props.flightprops)})
     let data3 = data2.map((x) => x.seat)
 
     this.setState({reservedSeats: data3}, function () {
