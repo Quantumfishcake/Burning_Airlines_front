@@ -5,11 +5,12 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <h1>HOME</h1>
-          <p>Please visit <Link to='/search'>SEARCH</Link></p>
+        <h1>Burning Airlines</h1>
+          <p>Looking for a flight ? <Link to='/search'>Search</Link></p>
       </div>
     );
   }
 }
+
 
 export default Home;
