@@ -39,11 +39,11 @@ class SearchForm extends Component {
         <label>
           Origin:
           <input type="text" name="name" onChange={this._handleChangeOrigin} value={this.state.origin}/>
-        </label>
+        </label> <br/>
         <label>
           Destination:
           <input type="text" name="name" onChange={this._handleChangeDestination} value={this.state.destination}/>
-        </label>
+        </label> <br/>
         <input type="submit" value="Search" />
       </form>
     )
@@ -56,7 +56,7 @@ class ListFlights extends Component {
     return (
       <div>
 
-      {_.filter(this.props.flights.flights, { 'origin': this.props.flights.origin, 'destination': this.props.flights.destination }).map((f) => <p key ={f.id}>{f.origin} > {f.destination} Flight: <Link to={`/reservation/${f.plane_id}/${f.id}`}>SEARCH</Link> {f.flight_num} Date: {f.date}</p>)}
+      {_.filter(this.props.flights.flights, { 'origin': this.props.flights.origin, 'destination': this.props.flights.destination }).map((f) => <p key ={f.id}>{f.origin} > {f.destination} <br/>Flight: <Link to={`/reservation/${f.plane_id}/${f.id}`}>{f.flight_num}</Link>  Date: {f.date}</p>)}
       {this.props.flights.planes.map((f) => <p key= {f.id}> {f.name} </p>)}
       </div>
     )
