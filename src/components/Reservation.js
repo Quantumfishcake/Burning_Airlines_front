@@ -47,11 +47,7 @@ console.log(columns);
 
     return (
       <div>
-      <p>Flight: {this.props.planes.flight_num}</p>
-        <p>Plane: {this.props.planes.plane}</p>
-        <p>Rows: {this.props.planes.rows}</p>
-        <p>Columns: {this.props.planes.columns}</p>
-        <p>Seats: {+(this.props.planes.columns) * +(this.props.planes.rows)}</p>
+
         <table className='flighttable'>
           <tbody>
             {rows.map(row => (
@@ -101,13 +97,10 @@ class Reservation extends Component {
 
   }
 
-
   render() {
     return (
       <div className="App">
         <h1>Reservation</h1>
-          <p>Plane id: {this.props.match.params.plane_id}</p>
-          <p>Flight id: {this.props.match.params.id}</p>
           <Plane planes={this.state} onSubmit={this.saveSeat}/>
       </div>
     );
