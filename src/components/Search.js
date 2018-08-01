@@ -44,7 +44,7 @@ class SearchForm extends Component {
           Destination:
           <input type="text" name="name" onChange={this._handleChangeDestination} value={this.state.destination}/>
         </label>
-        <input type="submit" value="Tell" />
+        <input type="submit" value="Search" />
       </form>
     )
   }
@@ -104,7 +104,7 @@ class Secrets extends Component {
   render () {
     return (
       <div>
-      <h2>BURNING</h2>
+      <h2>Search for a flight</h2>
       <SearchForm onSubmit={this.saveFlight}/>
       <ListFlights flights={this.state}/>
       </div>
