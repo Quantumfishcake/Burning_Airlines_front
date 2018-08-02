@@ -4,10 +4,46 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+
 }
 
 .App {
-  text-align: center;
+  max-width: 960px;
   font-family: 'Playfair Display', serif;
   font-size: 20px;
+  text-align: center;
+}
+
+.booking {
+  text-align: center;
+}
+
+.flighttable {
+  margin: 0 auto;
+}
+
+
+td {
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: cornflowerblue;
+}
+a {
+  text-decoration:  none;
+  font-size: 18px;
+
+}
+button {
+  background: darkorange;
+  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+p {
+  text-align: center;
 }
