@@ -47,20 +47,29 @@ fetchRes()
 }
 
 _handleClick(event){
+
   console.log(this.state);
   if(event.target.style.backgroundColor == 'red'){
+
+  }
+  else if(event.target.style.backgroundColor == 'green'){
     event.target.style.backgroundColor='cornflowerblue'
     this.setState({seat: [...this.state.seat - event.target.dataset.value]})
     console.log(this.state);
   }
   else {
-  event.target.style.backgroundColor='red'
+
+  document.querySelectorAll('td').forEach(function(td){
+    if(td.style.backgroundColor == 'green'){
+      td.style.backgroundColor = 'cornflowerblue'
+    }
+  });
+  event.target.style.backgroundColor='green'
   this.setState({seat: event.target.dataset.value}, function () {
     console.log(this.state);
 });
 
-  console.log(event.target.dataset.value);
-  console.log(this.state);
+
 }
 
 }
@@ -69,8 +78,8 @@ saveSeat(seats){
   console.log(seats.seat);
 console.log(axios.post(RESSERVER_URL, {user_id: 1, flight_id: 5, seat:1}));
   axios.post(RESSERVER_URL, {seat: seats.seat, user_id: 1, flight_id: seats.flight }).then((results) => {
-    console.log(results);
-
+    console.log(results.data);
+this.setState({reservedSeats: [results.data.seat, ...this.state.reservedSeats]})
 
     }).catch(function (error) {
     console.log(error.response);
@@ -82,7 +91,7 @@ console.log(axios.post(RESSERVER_URL, {user_id: 1, flight_id: 5, seat:1}));
 _handleSubmit(event){
   event.preventDefault()
     this.saveSeat(this.state)
-
+this.setState({seat: ''})
 }
 
   render () {
@@ -109,14 +118,14 @@ console.log(columns);
               <tr>
 
                 {columns.map(column =>(
-                  <td key={row+1 + column} onClick={this._handleClick} data-value={row+1+column} style={ this.state.reservedSeats.includes(row+1+column) ? { color: 'red' } : {}  }>{row+1+column}</td>
+                  <td key={row+1 + column} onClick={this._handleClick} data-value={row+1+column} style={ this.state.reservedSeats.includes(row+1+column) ? { backgroundColor: 'red' } : {}  }>{row+1+column}</td>
                 ))}
                 </tr>
             ))}
           </tbody>
         </table>
         <form onSubmit={this._handleSubmit}>
-    <textarea  value={this.state.seat}></textarea>
+    
     <input type='submit' value='Book' />
     </form>
       </div>

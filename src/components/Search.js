@@ -61,7 +61,7 @@ class ListFlights extends Component {
       <div>
 
       {_.filter(this.props.flights.flights, { 'origin': this.props.flights.origin, 'destination': this.props.flights.destination }).map((f) => <p key ={f.id}>{f.origin} > {f.destination} <br/>Flight: <Link to={`/reservation/${f.plane_id}/${f.id}`}> {f.flight_num}</Link> <br/> Date: {f.date}</p>)}
-      {this.props.flights.planes.map((f) => <p key= {f.id}> {f.name} </p>)}
+      {this.props.flights.planes.map((f) => <p key= {f.id}> </p>)}
       </div>
     )
   }
