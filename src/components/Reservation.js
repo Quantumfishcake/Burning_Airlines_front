@@ -27,6 +27,7 @@ const fetchRes = () => {
     let data = results.data
     console.log(props.flightprops);
     let data2 = _.filter(data, {flight_id: +(props.flightprops)})
+    console.log(data2);
     let data3 = data2.map((x) => x.seat)
 
     this.setState({reservedSeats: data3}, function () {
@@ -46,7 +47,7 @@ fetchRes()
 _handleClick(event){
   console.log(this.state);
   if(event.target.style.backgroundColor == 'red'){
-    event.target.style.backgroundColor='white'
+    event.target.style.backgroundColor='cornflowerblue'
     this.setState({seat: [...this.state.seat - event.target.dataset.value]})
     console.log(this.state);
   }
@@ -82,16 +83,23 @@ _handleSubmit(event){
 
 }
 
-
   render () {
     const rows = range(+(this.props.planes.rows))
     const columns = range(+(this.props.planes.columns)).map(num => String.fromCharCode(num + 65))
-    const aplh = ['a','b','c','d','e','f','g','h','i','j','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
 
 console.log(columns);
 
     return (
       <div>
+      <p>FLight: {this.props.planes.flight_num}, {this.props.planes.plane}</p>
+               <p>{this.props.planes.origin} > {this.props.planes.destination}</p>
+
+               {console.log(this.props.planes.origin)}
+               <p>Seats: {+(this.props.planes.columns) * +(this.props.planes.rows)}</p>
+
+
+
 
         <table className='flighttable'>
           <tbody>
@@ -118,7 +126,7 @@ console.log(columns);
 class Reservation extends Component {
   constructor (props) {
     super (props)
-    this.state = {flight_num: '', plane_id: props.match.params.plane_id, rows: '', columns: '', plane: ''}
+    this.state = {flight_num: '', plane_id: props.match.params.plane_id, rows: '', columns: '', plane: '', origin: '', destination: ''}
 3
     const fetchPlanes = () => {
       console.log(PLANESERVER_URL+`${props.match.params.plane_id}`+".json");
@@ -135,7 +143,7 @@ class Reservation extends Component {
       console.log(FLIGHTSERVER_URL+`${props.match.params.id}`+".json");
       console.log(props.match.params.id);
       axios.get(FLIGHTSERVER_URL+`${props.match.params.id}`+".json").then((results) => {
-        this.setState({flight_num: results.data.flight_num})
+        this.setState({flight_num: results.data.flight_num, origin: results.data.origin, destination: results.data.destination})
         console.log(results.data);
 
       })
@@ -148,7 +156,7 @@ class Reservation extends Component {
     return (
       <div className="App">
         <h1>Reservation</h1>
-          <Plane planes={this.state} onSubmit={this.saveSeat}/>
+          <Plane planes={this.state} flightprops={this.props.match.params.id} onSubmit={this.saveSeat}/>
       </div>
     );
   }
