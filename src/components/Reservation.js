@@ -146,8 +146,8 @@ class Reservation extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Reservation</h1>
+      <div className="booking">
+        <h1>Your reservation</h1>
           <Plane planes={this.state} onSubmit={this.saveSeat}/>
       </div>
     );

@@ -39,11 +39,11 @@ class SearchForm extends Component {
         <label>
           Origin:
           <input type="text" name="name" onChange={this._handleChangeOrigin} value={this.state.origin}/>
-        </label> <br/>
+        </label> <p>
         <label>
           Destination:
           <input type="text" name="name" onChange={this._handleChangeDestination} value={this.state.destination}/>
-        </label> <br/>
+        </label> </p>
         <input type="submit" value="Search" />
       </form>
     )
@@ -103,8 +103,9 @@ class Search extends Component {
 
   render () {
     return (
-      <div>
+      <div className="">
       <h2>Search a flight</h2>
+
       <SearchForm onSubmit={this.saveFlight}/>
       <ListFlights flights={this.state}/>
       </div>
