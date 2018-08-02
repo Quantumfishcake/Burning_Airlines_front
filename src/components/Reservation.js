@@ -123,8 +123,9 @@ console.log(columns);
           </tbody>
         </table>
         <form onSubmit={this._handleSubmit}>
-    
+
     <input type='submit' value='Book' />
+    <button><Link to='/search'>New Search</Link></button>
     </form>
       </div>
 
