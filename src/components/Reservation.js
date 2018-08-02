@@ -56,6 +56,12 @@ _handleClick(event){
     console.log(this.state);
   }
   else {
+
+  document.querySelectorAll('td').forEach(function(td){
+    if(td.style.backgroundColor == 'green'){
+      td.style.backgroundColor = 'cornflowerblue'
+    }
+  });
   event.target.style.backgroundColor='green'
   this.setState({seat: event.target.dataset.value}, function () {
     console.log(this.state);
@@ -117,7 +123,7 @@ console.log(columns);
           </tbody>
         </table>
         <form onSubmit={this._handleSubmit}>
-    <textarea  value={this.state.seat}></textarea>
+    
     <input type='submit' value='Book' />
     </form>
       </div>
