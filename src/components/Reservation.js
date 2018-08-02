@@ -46,7 +46,7 @@ fetchRes()
 _handleClick(event){
   console.log(this.state);
   if(event.target.style.backgroundColor == 'red'){
-    event.target.style.backgroundColor='white'
+    event.target.style.backgroundColor='cornflowerblue'
     this.setState({seat: [...this.state.seat - event.target.dataset.value]})
     console.log(this.state);
   }
