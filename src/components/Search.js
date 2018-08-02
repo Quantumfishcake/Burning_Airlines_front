@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
+import logo from '../BA2.png';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+
 var _ = require('lodash');
 
 const FLIGHTSERVER_URL = 'http://localhost:3000/flights.json'
@@ -35,6 +37,7 @@ class SearchForm extends Component {
 
   render () {
     return (
+
       <form onSubmit={this._handleSubmit}>
         <label>
           Origin:
@@ -46,6 +49,7 @@ class SearchForm extends Component {
         </label> </p>
         <input type="submit" value="Search" />
       </form>
+
     )
   }
 }
@@ -103,14 +107,18 @@ class Search extends Component {
 
   render () {
     return (
-      <div className="">
-      <h2>Search a flight</h2>
-
-      <SearchForm onSubmit={this.saveFlight}/>
-      <ListFlights flights={this.state}/>
+      <div className="content">
+      <div className="image">
+        <img src={logo} alt="Burning Airlines"></img>
       </div>
-    )
-  }
+
+      <div className="search">
+        <h2>Search a flight</h2> <br/>
+        <SearchForm onSubmit={this.saveFlight}/>
+        <ListFlights flights={this.state}/>
+      </div>
+</div>
+  )}
 }
 
 export default Search

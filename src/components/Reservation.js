@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import logo from '../BA2.png';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { range } from 'lodash';
+
 var _ = require('lodash');
 
 
