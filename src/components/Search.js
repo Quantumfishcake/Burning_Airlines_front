@@ -40,14 +40,15 @@ class SearchForm extends Component {
 
       <form onSubmit={this._handleSubmit}>
         <label>
-          Origin:
+          From:
           <input type="text" name="name" onChange={this._handleChangeOrigin} value={this.state.origin}/>
         </label> <p>
         <label>
-          Destination:
+          To:
           <input type="text" name="name" onChange={this._handleChangeDestination} value={this.state.destination}/>
         </label> </p>
-        <input type="submit" value="Search" />
+      <input type="submit" value="Search" className="button" />
+
       </form>
 
     )
