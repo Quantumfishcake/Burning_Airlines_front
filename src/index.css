@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 body {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   font-family: sans-serif;
+<<<<<<< HEAD
   text-align: center;
 }
 
@@ -12,16 +13,13 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   text-align: center;
+=======
+>>>>>>> 6968bc1dbc54bfb76a16e45c909f83d06b3cc34b
 }
 
-.booking {
-  text-align: center;
+h1 {
+  font-size: 32px;
 }
-
-.flighttable {
-  margin: 0 auto;
-}
-
 
 td {
   font-size: 20px;
@@ -31,20 +29,58 @@ td {
   padding: 10px;
   background-color: cornflowerblue;
 }
+
 a {
   text-decoration:  none;
   font-size: 18px;
 
 }
-button {
+.button {
   background: darkorange;
   border: solid 1px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   text-align: center;
   margin: 0 auto;
+<<<<<<< HEAD
+=======
+  color: black;
+  font-size: 15px;
+
+>>>>>>> 6968bc1dbc54bfb76a16e45c909f83d06b3cc34b
 }
 
 p {
   text-align: center;
+  font-size: 20px;
+}
+
+img {
+  max-width: 200px;
+
+}
+.search {
+  margin: 0 auto;
+  text-align: center;
+}
+.App {
+  max-width: 1160px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+}
+
+.booking {
+  text-align: center;
+}
+
+.flighttable {
+  margin: 0 auto;
+}
+.flex-1 {
+  display: flex;
+}
+
+input {
+  padding: 8px;
 }

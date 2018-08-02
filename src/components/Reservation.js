@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import logo from '../BA2.png';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { range } from 'lodash';
+
 var _ = require('lodash');
 
 
@@ -101,7 +103,7 @@ console.log(columns);
 
     return (
       <div>
-      <p>FLight: {this.props.planes.flight_num}, {this.props.planes.plane}</p>
+      <p>Flight: {this.props.planes.flight_num}, {this.props.planes.plane}</p>
                <p>{this.props.planes.origin} > {this.props.planes.destination}</p>
 
                {console.log(this.props.planes.origin)}
@@ -124,8 +126,12 @@ console.log(columns);
         </table>
         <form onSubmit={this._handleSubmit}>
 
-    <input type='submit' value='Book' />
+
+
+
+    <input type='submit' value='Book' className="button"/>
     <button><Link to='/search'>New Search</Link></button>
+
     </form>
       </div>
 
@@ -168,7 +174,6 @@ class Reservation extends Component {
       <div className="booking">
         <h1>Your reservation</h1>
           <Plane planes={this.state} flightprops={this.props.match.params.id} onSubmit={this.saveSeat}/>
-
       </div>
     );
   }
